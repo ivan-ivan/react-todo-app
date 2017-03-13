@@ -1,8 +1,9 @@
 import React from 'react';
-import Todo from './Todo.jsx';
-import AddTodo from './AddTodo.jsx';
+import Todo from '../components/Todo.jsx';
+import AddTodo from '../components/AddTodo.jsx';
+import {connect} from 'react-redux';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="todo-app">
@@ -25,3 +26,11 @@ export default class App extends React.Component {
     );
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    todoList: state.todoList
+  };
+}
+
+export default connect(mapStateToProps)(App);

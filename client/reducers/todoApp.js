@@ -1,4 +1,10 @@
-export const todoApp = (state = [], action) => {
+const initialState = {
+  id: 123,
+  text: 'Hej',
+  completed: false
+};
+
+export const todoApp = (state = [initialState], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
