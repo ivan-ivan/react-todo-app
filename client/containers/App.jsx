@@ -29,7 +29,7 @@ class App extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    todoList: state.todoList
+    todoList: state
   };
 }
 

@@ -4,7 +4,7 @@ const initialState = {
   completed: false
 };
 
-export const todoApp = (state = [initialState], action) => {
+export default (state = [initialState], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -15,5 +15,7 @@ export const todoApp = (state = [initialState], action) => {
           completed: false
         }
       ];
+    default:
+      return state;
   }
 }
