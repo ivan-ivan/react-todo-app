@@ -5,13 +5,14 @@ import {connect} from 'react-redux';
 
 class App extends React.Component {
   render() {
+    const { todoList, dispatch } = this.props;
     return (
       <div className="todo-app">
-        <AddTodo />
+        <AddTodo dispatch={dispatch} />
         <section className="section">
           <ul>
             {
-              this.props.todoList.map(todo => (
+              todoList.map(todo => (
                 <Todo 
                   {...todo}
                   key={todo.id}

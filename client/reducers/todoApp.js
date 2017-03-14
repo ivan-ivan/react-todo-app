@@ -10,8 +10,8 @@ export default (state = [initialState], action) => {
       return [
         ...state,
         {
-          id: action.id,
-          text: action.text,
+          id: action.payload.id,
+          text: action.payload.text,
           completed: false
         }
       ];
