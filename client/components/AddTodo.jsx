@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class AddTodo extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.addTodo = this.addTodo.bind(this);
     this.getInputValue = this.getInputValue.bind(this);
   }

@@ -15,6 +15,16 @@ export default (state = [initialState], action) => {
           completed: false
         }
       ];
+    case 'UPDATE_TODO':
+      return state.map(todo => {
+        if (todo.id === action.id) {
+          return Object.assign({}, todo, {});
+        }
+
+        return todo;
+      });
+    case 'DELETE_TODO':
+      return state.filter(todo => todo.id !== action.id);
     default:
       return state;
   }
