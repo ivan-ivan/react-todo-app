@@ -17,7 +17,6 @@ export default class AddTodo extends React.Component {
         id: Math.random(),
         text: this.getInputValue()
       });
-      // this.props.addTodo();
 
       this.textInput.value = null;
       this.textInput.focus();

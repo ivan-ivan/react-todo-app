@@ -5,6 +5,7 @@ export const Todo = ({ text, removeTodo, id }) => (
     <span>{ text }</span>
     <button 
       type="button"
+      onClick={() => removeTodo(id)}
     >
     remove
     </button>

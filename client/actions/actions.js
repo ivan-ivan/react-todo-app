@@ -1,9 +1,16 @@
+import * as constants from '../constants/constants.js';
+
 export const addTodo = todo => ({
-  type: 'ADD_TODO',
+  type: constants.ADD_TODO,
   payload: todo
 });
 
 export const removeTodo = id => ({
-  type: 'DELETE_TODO',
+  type: constants.DELETE_TODO,
   payload: id
+});
+
+export const updateTodo = todo => ({
+  type: constants.UPDATE_TODO,
+  payload: todo
 });

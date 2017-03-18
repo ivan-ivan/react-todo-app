@@ -1,3 +1,5 @@
+import * as constants from '../constants/constants.js';
+
 const initialState = {
   id: 123,
   text: 'Hej',
@@ -6,7 +8,7 @@ const initialState = {
 
 export default (state = [initialState], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case constants.ADD_TODO:
       return [
         ...state,
         {
@@ -15,16 +17,16 @@ export default (state = [initialState], action) => {
           completed: false
         }
       ];
-    case 'UPDATE_TODO':
+    case constants.UPDATE_TODO:
       return state.map(todo => {
-        if (todo.id === action.id) {
-          return Object.assign({}, todo, {});
+        if (todo.id === action.payload.id) {
+          return {...state, text: action.payload.text};
         }
 
         return todo;
       });
-    case 'DELETE_TODO':
-      return state.filter(todo => todo.id !== action.id);
+    case constants.DELETE_TODO:
+      return state.filter(todo => todo.id !== action.payload);
     default:
       return state;
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Todo } from '../components/Todo.jsx';
 import AddTodo from '../components/AddTodo.jsx';
 import  * as TodoActions from '../actions/actions';
-import { connect } from 'react-redux';
 
 const App  = ({ todoList, actions }) => (
     <div className="todo-app">
@@ -24,16 +24,13 @@ const App  = ({ todoList, actions }) => (
       <footer className="footer">
       </footer>
     </div>
-)
+);
 
 const mapStateToProps = state => ({
-    todoList: state
+  todoList: state
 });
 
 const mapDispatchToProps = dispatch => ({
-  // addTodo: (payload) => {
-  //   dispatch(addTodo(payload));
-  // }
   actions: bindActionCreators(TodoActions, dispatch)
 });
 
