@@ -12,12 +12,15 @@ export default class AddTodo extends React.Component {
   }
 
   addTodo(e) {
+    if (!this.textInput.value) {
+      return;
+    }
+
     if (e.type === 'click' || e.charCode === 13) {
       this.props.addTodo({
         id: Math.random(),
         text: this.getInputValue()
       });
-      // this.props.addTodo();
 
       this.textInput.value = null;
       this.textInput.focus();

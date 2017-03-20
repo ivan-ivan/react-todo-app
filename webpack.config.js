@@ -1,14 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   filename: 'index.html',
   inject: 'body'
 });
-// const ExtractSASS = new ExtractTextPlugin('/dist/styles.css')
-const ExtractSASS = new ExtractTextPlugin('style.css')
-
 
 module.exports = {
   entry: './client/index.js',
@@ -18,7 +14,7 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
@@ -26,15 +22,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style',
-          use: 'css?sourceMap!sass?sourceMap'
-        })
+        use: [{
+          loader: 'style-loader?sourceMap'
+        }, {
+          loader: 'css-loader?sourceMap'
+        }, {
+          loader: 'sass-loader?sourceMap'
+        }]
       }
     ]
   },
   plugins: [
-    HtmlWebpackPluginConfig,
-    ExtractSASS
+    HtmlWebpackPluginConfig
   ]
 }; 
