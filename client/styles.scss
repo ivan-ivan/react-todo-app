@@ -10,7 +10,7 @@
   box-shadow: 0 3px 0 rgba(255, 0, 0, .7);
   cursor: pointer;
   &:active {
-    box-shadow: rgba(255, 0, 0, .7);
+    box-shadow: 0 0 0 rgba(255, 0, 0, .7);
     transform: translateY(3px);
     color: #ffffff;
   }

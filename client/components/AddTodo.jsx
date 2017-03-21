@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class AddTodo extends React.Component {
+export default class AddTodo extends Component {
   constructor(props) {
     super(props);
     this.addTodo = this.addTodo.bind(this);
@@ -25,6 +25,41 @@ export default class AddTodo extends React.Component {
       this.textInput.value = null;
       this.textInput.focus();
     }
+
+    this.forceUpdate();
+  }
+  //
+  // componentWillMount() {
+  //   console.log('componentWillMount');
+  // }
+  //
+  // componentDidMount() {
+  //   console.log('componentDidMount');
+  // }
+  //
+  // componentWillReceiveProps() {
+  //   console.log('componentWillReceiveProps');
+  // }
+  // shouldComponentUpdate() {
+  //   console.log('shouldComponentUpdate');
+  // }
+  // componentWillUpdate() {
+  //   console.log('componentWillUpdate');
+  // }
+  // componentDidUpdate() {
+  //   console.log('componentDidUpdate');
+  // }
+
+  forceUpdate() {
+    console.log('forceUpdate');
+  }
+
+  isButtonDisabled() {
+    if (this.textInput === undefined) {
+      return true;
+    }
+
+    this.textInput.value ? true : false;
   }
 
   render() {
@@ -36,7 +71,7 @@ export default class AddTodo extends React.Component {
           ref={input => this.textInput = input}
           onKeyPress={this.addTodo}
         />
-        <button type="button" onClick={this.addTodo}>Add a todo</button>
+        <button type="button" disabled={this.isButtonDisabled()} onClick={this.addTodo} >Add a todo</button>
       </section>
     );
   }
