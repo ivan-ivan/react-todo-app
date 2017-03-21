@@ -8,11 +8,11 @@ import style from './styles.scss';
 import * as localStorageStore from './localStorageService';
 
 const persistedStore = localStorageStore.getData();
-
 const store = createStore(
   todoApp,
   persistedStore
 );
+
 const onStoreChange = () => {
   localStorageStore.saveData(store.getState());
 };
