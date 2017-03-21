@@ -1,12 +1,6 @@
 import * as constants from '../constants/constants.js';
 
-const initialState = {
-  id: 123,
-  text: 'Hej',
-  completed: false
-};
-
-export default (state = [initialState], action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case constants.ADD_TODO:
       return [
