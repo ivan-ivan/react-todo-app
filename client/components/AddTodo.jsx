@@ -26,32 +26,7 @@ export default class AddTodo extends Component {
       this.textInput.focus();
     }
 
-    this.forceUpdate();
-  }
-  //
-  // componentWillMount() {
-  //   console.log('componentWillMount');
-  // }
-  //
-  // componentDidMount() {
-  //   console.log('componentDidMount');
-  // }
-  //
-  // componentWillReceiveProps() {
-  //   console.log('componentWillReceiveProps');
-  // }
-  // shouldComponentUpdate() {
-  //   console.log('shouldComponentUpdate');
-  // }
-  // componentWillUpdate() {
-  //   console.log('componentWillUpdate');
-  // }
-  // componentDidUpdate() {
-  //   console.log('componentDidUpdate');
-  // }
-
-  forceUpdate() {
-    console.log('forceUpdate');
+    this.isButtonDisabled();
   }
 
   isButtonDisabled() {
@@ -59,7 +34,7 @@ export default class AddTodo extends Component {
       return true;
     }
 
-    this.textInput.value ? true : false;
+    this.textInput.value ? false : true;
   }
 
   render() {
