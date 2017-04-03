@@ -2,15 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
-  filename: 'index.html',
-  inject: 'body'
+  hash: true
 });
 
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'app.bundle.js'
   },
   devtool: 'source-map',
   module: {
@@ -22,13 +21,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader?sourceMap'
-        }, {
-          loader: 'css-loader?sourceMap'
-        }, {
-          loader: 'sass-loader?sourceMap'
-        }]
+        use: ['style-loader?sourceMap', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       }
     ]
   },
