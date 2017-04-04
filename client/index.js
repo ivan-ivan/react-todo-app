@@ -6,6 +6,7 @@ import todoApp from './reducers/todoApp.js';
 import App from './containers/App.jsx';
 import style from './styles.scss';
 import * as localStorageStore from './localStorageService';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const persistedStore = localStorageStore.getData();
 const store = createStore(
@@ -21,7 +22,9 @@ store.subscribe(onStoreChange);
 
 ReactDom.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Route path='/' component={App} />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

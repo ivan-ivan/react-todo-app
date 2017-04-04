@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Todo } from '../components/Todo.jsx';
 import AddTodo from '../components/AddTodo.jsx';
 import  * as TodoActions from '../actions/actions';
+import { Link } from 'react-router-dom';
 
 const App  = ({ todoList, actions }) => (
     <div className="todo-app">
@@ -14,6 +15,7 @@ const App  = ({ todoList, actions }) => (
             todoList.map(todo => (
               <Todo
                 {...todo}
+                toggleTodo={actions.toggleTodo}
                 removeTodo={actions.removeTodo}
                 key={todo.id}
               />
@@ -22,6 +24,11 @@ const App  = ({ todoList, actions }) => (
         </ul>
       </section>
       <footer className="footer">
+        <ul>
+          <li><Link to="all">All</Link></li>
+          <li><Link to="active">Active</Link></li>
+          <li><Link to="completed">Completed</Link></li>
+        </ul>
       </footer>
     </div>
 );

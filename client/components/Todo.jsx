@@ -1,13 +1,17 @@
 import React from 'react';
 
-export const Todo = ({ text, removeTodo, id }) => (
-  <li>
+export const Todo = ({ text, toggleTodo, removeTodo, id }) => {
+
+
+  return (<li
+      onClick={() => toggleTodo(id)}
+    >
     <span>{ text }</span>
-    <button 
+    <button
       type="button"
       onClick={() => removeTodo(id)}
     >
     remove
     </button>
-  </li>
-);
+  </li>)
+};

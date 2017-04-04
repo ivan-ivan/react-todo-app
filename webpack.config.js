@@ -1,15 +1,11 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './client/index.html',
-  hash: true
-});
 
 module.exports = {
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/static/'
   },
   devtool: 'source-map',
   module: {
@@ -24,8 +20,5 @@ module.exports = {
         use: ['style-loader?sourceMap', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       }
     ]
-  },
-  plugins: [
-    HtmlWebpackPluginConfig
-  ]
+  }
 }; 

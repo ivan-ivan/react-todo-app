@@ -14,3 +14,8 @@ export const updateTodo = todo => ({
   type: constants.UPDATE_TODO,
   payload: todo
 });
+
+export const toggleTodo = id => ({
+  type: constants.TOGGLE_TODO,
+  payload: id
+});

@@ -21,6 +21,13 @@ export default (state = [], action) => {
       });
     case constants.DELETE_TODO:
       return state.filter(todo => todo.id !== action.payload);
+    case constants.TOGGLE_TODO:
+      return state.map(todo => {
+        if (todo.id !== action.payload) {
+          return todo;
+        }
+        return todo.completed = !todo.completed;
+      });
     default:
       return state;
   }
